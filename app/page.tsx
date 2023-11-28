@@ -77,10 +77,10 @@ export default function Home() {
   };
 
   return (
-    <main className='min-h-screen bg-black' onClick={e=>{inputRef.current?.focus}}>
-      <Image src={img} alt='ascii' />
+    <main className='min-h-screen bg-black' ref={inputRef}>
+      <Image className='flex mx-auto' src={img} alt='ascii' width={600}/>
       <h1 className='text-green-500'>frenzyvjn@frenzyvjn-MacBook-Pro ~ %</h1>
-      <div>
+      <div className=''>
         <input
           ref={inputRef}
           type="text"
