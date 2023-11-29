@@ -82,7 +82,7 @@ export default function Home() {
                   newOutput = "Hello! Welcome to my portfolio!\n";
                   break;
                 case "cat About.txt":
-                  newOutput = "I am a software engineer who loves to build things.\n";
+                  newOutput = "👋 Greetings! I'm FrenzyVJN, a tech-savvy sophomore on a journey through Computer Science Engineering. I'm a Cybersecurity Enthusiast.\n💡 My quest for knowledge takes me to CTFs, conferences, and meetups, where I connect with like-minded individuals and stay on the cutting edge.\n👨‍💻 Fluent in Python, Javascript, React, R, SQL and C, I'm a versatile developer. I've crafted projects that reflect my expertise in Cybersecurity, Ethical Hacking, and Full-Stack Development.\n🎓 A College Student deeply involved in Cybersecurity and Full-Stack Development, I excel in Python and JS. Proficient in Flask and React, I also navigate the realms of C and R, providing diverse solutions to varied projects.\n🌐 Additionally, I have a keen interest in computer vision and have successfully completed projects using OpenCV.";
                   break;
                 case "cat Projects.txt":
                   newOutput = "I have built a few projects. Check them out!\n";
