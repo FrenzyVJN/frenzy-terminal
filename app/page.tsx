@@ -48,6 +48,7 @@ export default function Home() {
         newOutput = "";
         break;
       case "cd Admin":
+      case "cd admin":
           if (currentDirectory === "/home/frenzyvjn") {
             // Request password from the user
             const userPassword = prompt("Enter the admin password:");
@@ -69,11 +70,14 @@ export default function Home() {
         setInput("");
         return;
       case "help":
-        newOutput = "Available commands:\n- ls: List projects\n- pwd: Show current directory\n- cd <dir>: Change directory\n- cd ..: Move up one level\n- mkdir <dir>: Create directory\n- clear: Clear the terminal\n- help: Show available commands\n";
+        newOutput = "Available commands:\n- ls: List projects\n- pwd: Show current directory\n- cd <dir>: Change directory\n- cd ..: Move up one level\n- mkdir <dir>: Create directory\n- cat <file>: Display file content\n- clear: Clear the terminal\n- help: Show available commands\n";
         break;
       case "cd Home.txt":
       case "cd About.txt":
       case "cd Contact.txt":
+      case "cd home.txt":
+      case "cd about.txt":
+      case "cd contact.txt":
         if(currentDirectory === "/home/frenzyvjn/Portfolio") {
          newOutput = "Not a directory\n";
          break;
@@ -88,19 +92,27 @@ export default function Home() {
       case "cat About.txt":
       case "cat Projects.txt":
       case "cat Contact.txt":
+      case "cat home.txt":
+      case "cat about.txt":
+      case "cat projects.txt":
+      case "cat contact.txt":
             if (currentDirectory === "/home/frenzyvjn/Portfolio") {
               // Only execute these commands if the current directory is /home/frenzyvjn/Portfolio
               switch (input.trim()) {
                 case "cat Home.txt":
+                case "cat home.txt":
                   newOutput = "Hello! Welcome to my portfolio!\n";
                   break;
                 case "cat About.txt":
+                case "cat about.txt":
                   newOutput = "👋 Greetings! I'm FrenzyVJN, a tech-savvy fresher on a journey through Computer Science Engineering. I'm a Cybersecurity Enthusiast.\n💡 My quest for knowledge takes me to CTFs, conferences, and meetups, where I connect with like-minded individuals and stay on the cutting edge.\n👨‍💻 Fluent in Python, Javascript, React, R, SQL and C, I'm a versatile developer. I've crafted projects that reflect my expertise in Cybersecurity, Ethical Hacking, and Full-Stack Development.\n🎓 A College Student deeply involved in Cybersecurity and Full-Stack Development, I excel in Python and JS. Proficient in Flask and React, I also navigate the realms of C and R, providing diverse solutions to varied projects.\n🌐 Additionally, I have a keen interest in computer vision and have successfully completed projects using OpenCV.";
                   break;
                 case "cat Projects.txt":
+                case "cat projects.txt":
                   newOutput = "I have built a few projects. Check them out!\n";
                   break;
                 case "cat Contact.txt":
+                case "cat contact.txt":
                   newOutput = "You can reach me at...\n";
                   break;
                 default:
