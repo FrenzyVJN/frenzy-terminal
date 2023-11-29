@@ -71,6 +71,19 @@ export default function Home() {
       case "help":
         newOutput = "Available commands:\n- ls: List projects\n- pwd: Show current directory\n- cd <dir>: Change directory\n- cd ..: Move up one level\n- mkdir <dir>: Create directory\n- clear: Clear the terminal\n- help: Show available commands\n";
         break;
+      case "cd Home.txt":
+      case "cd About.txt":
+      case "cd Contact.txt":
+        if(currentDirectory === "/home/frenzyvjn/Portfolio") {
+         newOutput = "Not a directory\n";
+         break;
+        }
+      case "cd Projects.txt":
+      case "cd Projects":
+        if(currentDirectory === "/home/frenzyvjn/Portfolio") {
+          window.open("https://www.frenzyvjn.tech/projects", "_blank");
+          newOutput = "Opening link in a new tab...\n";
+           }
       case "cat Home.txt":
       case "cat About.txt":
       case "cat Projects.txt":
@@ -82,7 +95,7 @@ export default function Home() {
                   newOutput = "Hello! Welcome to my portfolio!\n";
                   break;
                 case "cat About.txt":
-                  newOutput = "👋 Greetings! I'm FrenzyVJN, a tech-savvy sophomore on a journey through Computer Science Engineering. I'm a Cybersecurity Enthusiast.\n💡 My quest for knowledge takes me to CTFs, conferences, and meetups, where I connect with like-minded individuals and stay on the cutting edge.\n👨‍💻 Fluent in Python, Javascript, React, R, SQL and C, I'm a versatile developer. I've crafted projects that reflect my expertise in Cybersecurity, Ethical Hacking, and Full-Stack Development.\n🎓 A College Student deeply involved in Cybersecurity and Full-Stack Development, I excel in Python and JS. Proficient in Flask and React, I also navigate the realms of C and R, providing diverse solutions to varied projects.\n🌐 Additionally, I have a keen interest in computer vision and have successfully completed projects using OpenCV.";
+                  newOutput = "👋 Greetings! I'm FrenzyVJN, a tech-savvy fresher on a journey through Computer Science Engineering. I'm a Cybersecurity Enthusiast.\n💡 My quest for knowledge takes me to CTFs, conferences, and meetups, where I connect with like-minded individuals and stay on the cutting edge.\n👨‍💻 Fluent in Python, Javascript, React, R, SQL and C, I'm a versatile developer. I've crafted projects that reflect my expertise in Cybersecurity, Ethical Hacking, and Full-Stack Development.\n🎓 A College Student deeply involved in Cybersecurity and Full-Stack Development, I excel in Python and JS. Proficient in Flask and React, I also navigate the realms of C and R, providing diverse solutions to varied projects.\n🌐 Additionally, I have a keen interest in computer vision and have successfully completed projects using OpenCV.";
                   break;
                 case "cat Projects.txt":
                   newOutput = "I have built a few projects. Check them out!\n";
