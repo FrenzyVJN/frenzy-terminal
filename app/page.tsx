@@ -7,14 +7,15 @@ import img from '../public/ascii.png';
 export default function Home() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
+  const [password, setPassword] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const [currentDirectory, setCurrentDirectory] = useState("/home/frenzyvjn");
   const [fileSystem, setFileSystem] = useState<{ [key: string]: string[] }>({
     "": ["home"],
     "/": ["home"],
     "/home": ["frenzyvjn", "admin"],
-    "/home/frenzyvjn": [ "Portfolio", "Testing"],
-    "/home/frenzyvjn/Documents": ["Home.txt", "About.txt", "Projects.txt", "Contact.txt"],
+    "/home/frenzyvjn": [ "Portfolio", "Admin"],
+    "/home/frenzyvjn/Portfolio": ["Home.txt", "About.txt", "Projects.txt", "Contact.txt"],
     // Add more directories and files as needed
   });
 
@@ -46,6 +47,23 @@ export default function Home() {
         });
         newOutput = "";
         break;
+      case "cd Admin":
+          if (currentDirectory === "/home/frenzyvjn") {
+            // Request password from the user
+            const userPassword = prompt("Enter the admin password:");
+            const password = "admin"
+            // Verify the password
+            if (userPassword === password) {
+              setCurrentDirectory((prevDirectory) => `${prevDirectory}/Admin`);
+            } else {
+              newOutput = "Access denied. Incorrect password.\n";
+            }
+          } else {
+            console.log("Access denied");
+          }
+          break;
+  
+
       case "clear":
         setOutput("");
         setInput("");
@@ -53,6 +71,34 @@ export default function Home() {
       case "help":
         newOutput = "Available commands:\n- ls: List projects\n- pwd: Show current directory\n- cd <dir>: Change directory\n- cd ..: Move up one level\n- mkdir <dir>: Create directory\n- clear: Clear the terminal\n- help: Show available commands\n";
         break;
+      case "cat Home.txt":
+      case "cat About.txt":
+      case "cat Projects.txt":
+      case "cat Contact.txt":
+            if (currentDirectory === "/home/frenzyvjn/Portfolio") {
+              // Only execute these commands if the current directory is /home/frenzyvjn/Portfolio
+              switch (input.trim()) {
+                case "cat Home.txt":
+                  newOutput = "Hello! Welcome to my portfolio!\n";
+                  break;
+                case "cat About.txt":
+                  newOutput = "I am a software engineer who loves to build things.\n";
+                  break;
+                case "cat Projects.txt":
+                  newOutput = "I have built a few projects. Check them out!\n";
+                  break;
+                case "cat Contact.txt":
+                  newOutput = "You can reach me at...\n";
+                  break;
+                default:
+                  newOutput = "Invalid 'cat' command.\n";
+                  break;
+              }
+            } else {
+              newOutput = "File not found. 'cat' command is only available in /home/frenzyvjn/Portfolio.\n";
+            }
+            break;
+      
       default:
         if (input.startsWith("cd ")) {
           const targetDirectory = input.substring(3).trim();
@@ -79,7 +125,7 @@ export default function Home() {
   return (
     <main className='min-h-screen bg-black' ref={inputRef}>
       <Image className='flex mx-auto' src={img} alt='ascii' width={600}/>
-      <h1 className='text-green-500'>frenzyvjn@frenzyvjn-MacBook-Pro ~ %</h1>
+      <h1 className='text-green-500 selection:bg-green-400 selection:bg-opacity-25'>frenzyvjn@frenzyvjn-MacBook-Pro ~ %</h1>
       <div className=''>
         <input
           ref={inputRef}
